@@ -1,33 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { HomeComponent } from './home/home.component';
-import { RoutingModule } from './app.router';
-
-import { FilmeFormComponent } from './filmes/filme-form/filme-form.component';
-import { FilmeListComponent } from './filmes/filme-list/filme-list.component';
+import { FilmeComponent } from './filme/filme.component';
+import { GamesComponent } from './games/games.component';
+import { LanhouseComponent } from './lanhouse/lanhouse.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    HomeComponent,
-    FilmeFormComponent,
-    FilmeListComponent
+    FilmeComponent,
+    GamesComponent,
+    LanhouseComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    RoutingModule
+    AppRoutingModule
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
