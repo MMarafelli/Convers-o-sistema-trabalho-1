@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <thead>
+      <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Gênero</th>
+          <th>Ano de Lançamento</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let filmeTabela of filmes">
+        <a [routerLink]="filmeTabela.codigo">
+          <td>{{filmeTabela.codigo}}</td> </a>
+          <td>{{filmeTabela.nome}}</td>
+          <td>{{filmeTabela.genero}}</td>
+          <td>{{filmeTabela.anoLancamento}}</td>
+      </tr>
+  </tbody>
+</table>
