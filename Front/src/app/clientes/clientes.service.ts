@@ -3,12 +3,8 @@ import { Http, RequestOptionsArgs } from '@angular/http';
 import { Cliente } from './cliente';
 
 import { Observable, of, throwError, pipe } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-/* import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch'; */
 
 @Injectable({
   providedIn: 'root'
