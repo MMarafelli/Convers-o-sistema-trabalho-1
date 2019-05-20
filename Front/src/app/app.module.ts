@@ -1,28 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GamesComponent } from './games/games.component';
+import { LanhouseComponent } from './lanhouse/lanhouse.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
-import { RoutingModule } from './app.router';
 
 @NgModule({
   declarations: [
     AppComponent,
+    GamesComponent,
+    LanhouseComponent,
     MenuComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule ,
+    AppRoutingModule,
     FormsModule,
-    HttpModule,
-    RoutingModule
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
