@@ -19,6 +19,14 @@ const routes: Routes = [
   {
     path: 'filmes',
     loadChildren: './filmes/filmes.module#FilmesModule'
+  },
+  {
+    path: 'lanhouse',
+    loadChildren: './lanhouse/lanhouse.module#FilmesModule'
+  },
+  {
+    path: 'games',
+    loadChildren: './games/games.module#FilmesModule'
   }
 ];
 

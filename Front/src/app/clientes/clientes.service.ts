@@ -31,12 +31,10 @@ export class ClientesService {
     return Observable.throw(erro);
   }
 
-  add(cliente: Cliente) {
+  add(cliente: Cliente ) {
+    console.log(cliente);
     return this.http.post(this.url,JSON.stringify(cliente),
     {headers: this.getHeaders()})
-    pipe(
-      tap(data => this.clientesChanged.emit(this.getAll())),
-      catchError(this.handleError));
   }
   
   remove(id: number) {
