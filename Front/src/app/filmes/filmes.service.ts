@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http, RequestOptionsArgs } from '@angular/http';
 import { Filme } from './filme';
 
 import 'rxjs/add/operator/map';
@@ -18,9 +18,9 @@ export class FilmesService {
 
   getAll(): Observable<Filme[]> {
     return this.http.get(this.url)
-            .map(res => res.json())
-            .catch(this.handleError);
-    
+      .map(res => res.json())
+      .catch(this.handleError);
+
   }
 
   private handleError(error: any) {
@@ -28,6 +28,13 @@ export class FilmesService {
     console.error('Ocorreu um erro', error);
     return Observable.throw(erro);
   }
+
+  getHeaders(): any {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return headers;
+  }
+  
 }
 
 

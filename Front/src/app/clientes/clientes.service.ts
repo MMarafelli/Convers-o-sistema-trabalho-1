@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, RequestOptionsArgs } from '@angular/http';
+import { Headers, Http, RequestOptionsArgs } from '@angular/http';
 import { Cliente } from './cliente';
 
 import { Observable, of, throwError, pipe } from 'rxjs';
@@ -32,7 +32,7 @@ export class ClientesService {
   }
 
   add(cliente: Cliente ) {
-    console.log(cliente);
+    console.log(JSON.stringify(cliente));
     return this.http.post(this.url,JSON.stringify(cliente),
     {headers: this.getHeaders()})
   }
