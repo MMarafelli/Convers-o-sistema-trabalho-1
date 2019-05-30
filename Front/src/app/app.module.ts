@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { LanhouseComponent } from './lanhouse/lanhouse.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LoginServiceService } from './login/login-service.service';
+import { AuthGuard } from './login/login-guard';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,12 @@ import { LoginComponent } from './login/login.component';
     HttpModule ,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    LoginServiceService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

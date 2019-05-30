@@ -28,7 +28,7 @@ export class LoginServiceService {
     this.router.navigate(['/signin']);
   }
 
-  isAutenticated() {
+  isAuthenticated() {
     return this.authenticated;
   }
 
