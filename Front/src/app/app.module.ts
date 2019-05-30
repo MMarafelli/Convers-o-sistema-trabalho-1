@@ -10,6 +10,7 @@ import { GamesComponent } from './games/games.component';
 import { LanhouseComponent } from './lanhouse/lanhouse.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     GamesComponent,
     LanhouseComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
