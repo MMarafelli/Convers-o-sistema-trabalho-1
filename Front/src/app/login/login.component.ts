@@ -9,7 +9,7 @@ import { LoginServiceService } from './login-service.service';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  formLogin: FormGroup;
   error = false;
   errorMessage = '';
 
@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
     private authService: LoginServiceService) { }
 
   onSignin() {
-    this.authService.signIn(this.form.value);
+    this.authService.signIn(this.formLogin.value);
   }
 
   ngOnInit(): any {
-    this.form = this.fb.group({
-      emai: ['', Validators.required],
+    this.formLogin = this.fb.group({
+      email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.resource;
 
 import java.net.URI;
 import java.util.List;
@@ -19,31 +19,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.example.domain.User;
+import com.example.repository.UserRepository;
+
 @RestController
-@RequestMapping(value="/cliente")
+@RequestMapping(value="/login")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class ClienteResource {
+public class UserResource {
 	
 	@Autowired
-	private ClienteRepository service;
+	private UserRepository service;
 	
 	@GetMapping
-	public ResponseEntity<List<Cliente>> findAll() {
-		List<Cliente> cliente = service.findAll();
-		return ResponseEntity.ok().body(cliente);
+	public ResponseEntity<List<User>> findAll() {
+		List<User> user = service.findAll();
+		return ResponseEntity.ok().body(user);
 	}
 		
 	@PostMapping
-	public ResponseEntity<?> salvar(@Valid @RequestBody Cliente cliente) {
-		service.save(cliente);
+	public ResponseEntity<?> salvar(@Valid @RequestBody User user) {
+		service.save(user);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(cliente.getCodigo()).toUri();
+		        .buildAndExpand(user.getCodigo()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
-	public ResponseEntity<?> atualizar(@Valid @RequestBody Cliente cliente) {
-		service.save(cliente);
+	public ResponseEntity<?> atualizar(@Valid @RequestBody User user) {
+		service.save(user);
 	    return ResponseEntity.noContent().build();
 	}
 	

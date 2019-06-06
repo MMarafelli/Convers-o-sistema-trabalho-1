@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.resource;
 
 import java.net.URI;
 import java.util.List;
@@ -19,31 +19,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.example.domain.Filme;
+import com.example.repository.FilmeRepository;
+
 @RestController
-@RequestMapping(value="/lanhouse")
+@RequestMapping(value="/filmes")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class LanHouseResource {
+public class FilmeResource {
 	
 	@Autowired
-	private LanHouseRepository service;
+	private FilmeRepository service;
 	
 	@GetMapping
-	public ResponseEntity<List<LanHouse>> findAll() {
-		List<LanHouse> lanHouse = service.findAll();
-		return ResponseEntity.ok().body(lanHouse);
+	public ResponseEntity<List<Filme>> findAll() {
+		List<Filme> filmes = service.findAll();
+		return ResponseEntity.ok().body(filmes);
 	}
 		
 	@PostMapping
-	public ResponseEntity<?> salvar(@Valid @RequestBody LanHouse lanHouse) {
-		service.save(lanHouse);
+	public ResponseEntity<?> salvar(@Valid @RequestBody Filme filme) {
+		service.save(filme);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(lanHouse.getCodigo()).toUri();
+		        .buildAndExpand(filme.getCodigo()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
-	public ResponseEntity<?> atualizar(@Valid @RequestBody LanHouse lanHouse) {
-		service.save(lanHouse);
+	public ResponseEntity<?> atualizar(@Valid @RequestBody Filme filme) {
+		service.save(filme);
 	    return ResponseEntity.noContent().build();
 	}
 	

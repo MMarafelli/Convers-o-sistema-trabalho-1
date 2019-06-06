@@ -12,11 +12,12 @@ export class LoginServiceService {
   constructor(private router: Router) { }
 
   signIn(user: User) {
+    console.log(user);
     if ((user.email === 'user@email.com' || user.email === 'usuario@email.com')
       && user.password === '123456') {
       this.authenticated = true;
       this.showNavBar(true);
-      this.router.navigate(['/']);
+      this.router.navigate(['home']);
     } else {
       this.authenticated = false;
     }
