@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.domain.LanHouse;
+import com.example.model.LanHouse;
 import com.example.repository.LanHouseRepository;
 
 @RestController

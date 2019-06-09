@@ -1,20 +1,48 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './user';
+import { Http, Headers, RequestOptions } from '@angular/http';
+
 
 @Injectable()
 export class LoginServiceService {
+
+  private url: string = 'http://localhost:8080/login';
 
   public showNavBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private authenticated = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private http: Http) { }
 
   signIn(user: User) {
+    let logged = false;
+    let headers = new Headers(
+      {
+        'Content-Type': 'application/json; charset=utf-8'
+      });
+    let options = new RequestOptions({ headers: headers });
+
     console.log(user);
-    if ((user.email === 'user@email.com' || user.email === 'usuario@email.com')
-      && user.password === '123456') {
+    this.http.post(this.url, user, options).toPromise()
+    .then((res) => {
+      console.log('API Response : ', res.json());
+      console.log(res.json().msgUsuario);
+      if(res.json().msgUsuario == "Usuario Logado com Sucesso"){
+        logged = true;
+        this.login(logged);
+      }
+    })
+    .catch((error) => {
+      console.error('API Error : ', error.status);
+      console.error('API Error : ', error.json().msgUsuario);
+    });
+  }
+
+  login(logged){
+    if (logged) {
       this.authenticated = true;
       this.showNavBar(true);
       this.router.navigate(['home']);

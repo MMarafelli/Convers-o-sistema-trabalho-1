@@ -3,7 +3,7 @@ package com.example.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.domain.LanHouse;
+import com.example.model.LanHouse;
 
 @Repository
 public interface LanHouseRepository extends JpaRepository<LanHouse,Integer> {

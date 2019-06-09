@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.domain.Cliente;
+import com.example.model.Cliente;
 import com.example.repository.ClienteRepository;
 
 @RestController
