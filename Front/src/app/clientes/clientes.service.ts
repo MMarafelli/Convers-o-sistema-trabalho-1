@@ -1,10 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, RequestOptionsArgs } from '@angular/http';
 import { Cliente } from './cliente';
 
 import { Observable, of, throwError, pipe } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Http, Headers } from '@angular/http';
 import { catchError, map, tap } from 'rxjs/operators';
+
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/catch';
 })
 export class ClientesService {
 
-  private url: string = 'http://localhost:8080/clientes';
+  private url: string = 'http://localhost:8080/cliente';
 
   clientesChanged = new EventEmitter<Observable<Cliente[]>>();
 
@@ -36,23 +36,24 @@ export class ClientesService {
   }
 
   add(cliente: Cliente) {
-    return this.http.post(this.url, JSON.stringify(cliente),
+    console.log("aqui add");
+    return this.http.post(this.url,JSON.stringify(cliente),
       { headers: this.getHeaders() })
-    pipe(
+    .pipe(
       tap(data => this.clientesChanged.emit(this.getAll())),
       catchError(this.handleError));
   }
 
   remove(id: number) {
     return this.http.delete(this.getUrl(id),
-      { headers: this.getHeaders() })
+      {headers: this.getHeaders()})
       .pipe(
         map(res => res.json()),
         tap(data => this.clientesChanged.emit(this.getAll())),
         catchError(this.handleError));
   }
 
-  getHeaders(): any {
+  private getHeaders() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return headers;
