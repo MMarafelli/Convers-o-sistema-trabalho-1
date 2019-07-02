@@ -27,21 +27,21 @@ export class LoginServiceService {
 
     console.log(user);
     this.http.post(this.url, user, options).toPromise()
-    .then((res) => {
-      console.log('API Response : ', res.json());
-      console.log(res.json().msgUsuario);
-      if(res.json().msgUsuario == "Usuario Logado com Sucesso"){
-        logged = true;
-        this.login(logged);
-      }
-    })
-    .catch((error) => {
-      console.error('API Error : ', error.status);
-      console.error('API Error : ', error.json().msgUsuario);
-    });
+      .then((res) => {
+        console.log('API Response : ', res.json());
+        console.log(res.json().msgUsuario);
+        if (res.json().msgUsuario == "Usuario Logado com Sucesso") {
+          logged = true;
+          this.login(logged);
+        }
+      })
+      .catch((error) => {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', error.json().msgUsuario);
+      });
   }
 
-  login(logged){
+  login(logged) {
     if (logged) {
       this.authenticated = true;
       this.showNavBar(true);
@@ -58,7 +58,7 @@ export class LoginServiceService {
   }
 
   isAuthenticated() {
-    return this.authenticated;
+      return this.authenticated;
   }
 
   private showNavBar(ifShow: boolean) {

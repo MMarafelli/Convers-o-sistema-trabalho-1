@@ -8,7 +8,7 @@ import { LoginServiceService } from '../login/login-service.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private authService: LoginServiceService ) { }
+  constructor(private authService: LoginServiceService) { }
 
   private showNavBar: boolean = false;
 
@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   }
 
   isAuth(){
-    return this.authService.isAuthenticated();
+      return this.authService.isAuthenticated();
   }
 
   onLogout(){

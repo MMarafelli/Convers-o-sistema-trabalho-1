@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GamesComponent } from './games/games.component';
 import { LanhouseComponent } from './lanhouse/lanhouse.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
@@ -17,7 +16,6 @@ import { AuthGuard } from './login/login-guard';
 @NgModule({
   declarations: [
     AppComponent,
-    GamesComponent,
     LanhouseComponent,
     MenuComponent,
     HomeComponent,

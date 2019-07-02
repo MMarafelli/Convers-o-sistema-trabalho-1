@@ -1,0 +1,44 @@
+<br />
+
+<form #cadastro="ngForm" (ngSubmit)="salvar()">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="txtCodigo">Código:</label>
+      <input type="text" [(ngModel)]="games.codigo" name="txtCodigo" class="form-control" id="txtCodigo" disabled>
+    </div>
+    <div class="form-group col-md-10">
+      <label for="txtNomeGames">Nome do game:</label>
+      <input type="text" [(ngModel)]="games.nome" #txtNomeGames="ngModel" name="txtNomeGames" minlength="1"
+        class="form-control" id="txtNomeGames" placeholder="Digite o nome do game">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="txtClasse">Classe:</label>
+      <input type="text" [(ngModel)]="games.classe" #txtClasse="ngModel" name="txtClasse" minlength="1"
+        class="form-control" id="txtClasse" placeholder="Digite a classe do game">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="txtCensura">Censura:</label>
+      <input type="text" [(ngModel)]="games.censura" #txtCensura="ngModel" name="txtCensura" minlength="1" maxlength="4"
+        class="form-control" id="txtCensura" placeholder="Digite a censura">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="txtAnoLancamento">Ano de lançamento:</label>
+      <input type="text" [(ngModel)]="games.anoLancamento" #txtAnoLancamento="ngModel" name="txtAnoLancamento"
+        minlength="1" maxlength="4" class="form-control" id="txtAnoLancamento" placeholder="Digite um ano">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="txtPreco">Preço:</label>
+      <input type="text" [(ngModel)]="games.preco" #txtClasse="ngModel" name="txtPreco"
+        class="form-control" id="txtPreco" placeholder="Digiteo preco do game">
+    </div>
+  </div>
+  <div class="container">
+    <button class="btn btn-success" type="submit" [disabled]="cadastro.form.invalid">Enviar</button>
+    <button class="btn btn-danger" type="button" [hidden]="isNew" (click)="excluir()">Excluir</button>
+    <button class="btn btn-warning" type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

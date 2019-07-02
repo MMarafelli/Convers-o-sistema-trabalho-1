@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: './filmes/filmes.module#FilmesModule'
   },
   {
+    path: 'games',
+    loadChildren: './games/games.module#GamesModule'
+  },
+  {
     path: 'signin',
     component: LoginComponent
   }
