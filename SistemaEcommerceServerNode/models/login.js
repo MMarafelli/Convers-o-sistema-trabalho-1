@@ -1,21 +1,21 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const LanHouse = db.define('lanhouse', {
-    codigo: {
+const User = db.define('user', {
+    id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    nome: {
+    email: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    pagamento: {
+    password: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    tempoDeMaquina: {
+    msgUsuario: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -27,4 +27,4 @@ const LanHouse = db.define('lanhouse', {
     }
 });
 
-module.exports = LanHouse;
+module.exports = User;

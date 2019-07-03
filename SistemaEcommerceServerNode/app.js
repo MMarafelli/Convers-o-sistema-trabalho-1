@@ -1,5 +1,5 @@
 const app = require('express')();
-const port = 3000;
+const port = 8080;
 const db = require('./config/database');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -23,11 +23,13 @@ const clientes = require('./routes/clientes');
 const filme = require('./routes/filmes');
 const game = require('./routes/games');
 const lanhouse = require('./routes/lanhouse');
+const login = require('./routes/login');
 
 app.use('/', index);
 app.use('/clientes', clientes);
 app.use('/filmes', filme);
 app.use('/games', game);
 app.use('/lanhouse', lanhouse);
+app.use('/login', login);
 
 app.listen(port, () => console.log('Up on port '+port));

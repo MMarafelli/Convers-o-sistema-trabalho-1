@@ -18,6 +18,12 @@ const Filme = db.define('filme', {
     genero: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    createdAt: {
+        type: Sequelize.DATE
+    },
+    updatedAt: {
+        type: Sequelize.DATE
     }
 });
 

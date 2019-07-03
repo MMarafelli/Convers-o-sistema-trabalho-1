@@ -38,6 +38,12 @@ const Cliente = db.define('cliente', {
     fax: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    createdAt: {
+        type: Sequelize.DATE
+    },
+    updatedAt: {
+        type: Sequelize.DATE
     }
 });
 

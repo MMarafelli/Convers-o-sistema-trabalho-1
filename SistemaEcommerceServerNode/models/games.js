@@ -26,6 +26,12 @@ const Game = db.define('games', {
     preco: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    createdAt: {
+        type: Sequelize.DATE
+    },
+    updatedAt: {
+        type: Sequelize.DATE
     }
 });
 
