@@ -26,6 +26,10 @@ const routes: Routes = [
     loadChildren: './games/games.module#GamesModule'
   },
   {
+    path: 'lanhouse',
+    loadChildren: './lanhouse/lanhouse.module#LanHouseModule'
+  },
+  {
     path: 'signin',
     component: LoginComponent
   }

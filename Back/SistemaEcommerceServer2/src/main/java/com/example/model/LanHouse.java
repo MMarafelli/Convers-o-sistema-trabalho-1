@@ -8,36 +8,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class LanHouse implements Serializable{
-	
+public class LanHouse implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
-	private String nome;	
-	private String classe;
-	private String origem;
-	private String forca;	
-	private String inteligencia;
-	private String carisma;
-	
+	private String nome;
+	private String pagamento;
+	private String tempoDeMaquina;
+
 	public LanHouse() {
 		super();
 	}
 
-	public LanHouse(Integer codigo, String nome, String classe, String origem, String forca, String inteligencia,
-			String carisma) {
+	public LanHouse(Integer codigo, String nome, String pagamento, String tempoDeMaquina) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
-		this.classe = classe;
-		this.origem = origem;
-		this.forca = forca;
-		this.inteligencia = inteligencia;
-		this.carisma = carisma;
+		this.pagamento = pagamento;
+		this.tempoDeMaquina = tempoDeMaquina;
 	}
 
 	public Integer getCodigo() {
@@ -56,44 +49,20 @@ public class LanHouse implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getClasse() {
-		return classe;
+	public String getPagamento() {
+		return pagamento;
 	}
 
-	public void setClasse(String classe) {
-		this.classe = classe;
+	public void setPagamento(String pagamento) {
+		this.pagamento = pagamento;
 	}
 
-	public String getOrigem() {
-		return origem;
+	public String getTempoDeMaquina() {
+		return tempoDeMaquina;
 	}
 
-	public void setOrigem(String origem) {
-		this.origem = origem;
-	}
-
-	public String getForca() {
-		return forca;
-	}
-
-	public void setForca(String forca) {
-		this.forca = forca;
-	}
-
-	public String getInteligencia() {
-		return inteligencia;
-	}
-
-	public void setInteligencia(String inteligencia) {
-		this.inteligencia = inteligencia;
-	}
-
-	public String getCarisma() {
-		return carisma;
-	}
-
-	public void setCarisma(String carisma) {
-		this.carisma = carisma;
+	public void setTempoDeMaquina(String tempoDeMaquina) {
+		this.tempoDeMaquina = tempoDeMaquina;
 	}
 
 }
