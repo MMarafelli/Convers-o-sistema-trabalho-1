@@ -1,0 +1,33 @@
+const app = require('express')();
+const port = 3000;
+const db = require('./config/database');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+app.use(cors({
+    origin: ['http://localhost:4200'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.use(bodyParser.json());
+
+db.authenticate()
+    .then(() => console.log('Database connected...'))
+    .catch(err => console.log('Error: '+err));
+
+app.set('json spaces', 4);
+
+const index = require('./routes/index');
+const clientes = require('./routes/clientes');
+const filme = require('./routes/filmes');
+const game = require('./routes/games');
+const lanhouse = require('./routes/lanhouse');
+
+app.use('/', index);
+app.use('/clientes', clientes);
+app.use('/filmes', filme);
+app.use('/games', game);
+app.use('/lanhouse', lanhouse);
+
+app.listen(port, () => console.log('Up on port '+port));
