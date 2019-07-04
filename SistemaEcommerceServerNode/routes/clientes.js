@@ -5,6 +5,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 router.get('/', (req, res) => {
+    console.log("findall")
     Cliente.findAll()
         .then(result => res.json(result))
         .catch(error => {

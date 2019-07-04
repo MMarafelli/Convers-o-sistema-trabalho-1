@@ -26,7 +26,6 @@ export class ClientesService {
     return this.http.get(this.url)
       .map(res => res.json())
       .catch(this.handleError);
-
   }
 
   private handleError(error: any) {

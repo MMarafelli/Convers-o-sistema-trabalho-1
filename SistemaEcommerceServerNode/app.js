@@ -26,7 +26,7 @@ const lanhouse = require('./routes/lanhouse');
 const login = require('./routes/login');
 
 app.use('/', index);
-app.use('/clientes', clientes);
+app.use('/cliente', clientes);
 app.use('/filmes', filme);
 app.use('/games', game);
 app.use('/lanhouse', lanhouse);
